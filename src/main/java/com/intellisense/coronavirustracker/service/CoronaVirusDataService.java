@@ -21,10 +21,9 @@ public class CoronaVirusDataService {
     /*
     This service gives the data of coronavirus cases
      */
-
     private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Confirmed.csv";
-
     private List<LocationStats> allStats = new ArrayList<>();
+    private static HttpURLConnection connection;
 
     // make an http call to the url
     @PostConstruct
@@ -33,35 +32,41 @@ public class CoronaVirusDataService {
 
         List<LocationStats> newStats = new ArrayList<>();
 
-        URL url = new URL(VIRUS_DATA_URL);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
+        try{
+            URL url = new URL(VIRUS_DATA_URL);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
 
-        //read response
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null){
-            content.append(inputLine);
+            //read response
+            StringBuilder content;
+            try(BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))){
+                String line;
+                content = new StringBuilder();
+
+                while ((line = reader.readLine()) != null){
+                    content.append(line);
+                    content.append(System.lineSeparator());
+                }
+            }
+            //System.out.println(content.toString());
+
+            StringReader reader = new StringReader(content.toString());
+
+            Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
+            for (CSVRecord record : records) {
+                LocationStats locationStats = new LocationStats();
+                locationStats.setState(record.get("Province/State"));
+                locationStats.setCountry(record.get("Country/Region"));
+                locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+
+                //System.out.println(locationStats);
+                newStats.add(locationStats);
+            }
+            this.allStats = newStats;
+
+        }finally {
+            connection.disconnect();
         }
-        //in.close();
-
-        //connection.disconnect();
-
-        System.out.println(content);
-//
-//        StringReader reader = new StringReader(content.toString());
-//        Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
-//        for (CSVRecord record : records) {
-//            LocationStats locationStats = new LocationStats();
-//            locationStats.setState(record.get("Province/State"));
-//            locationStats.setCountry(record.get("Country/Region"));
-//            locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
-//
-//            System.out.println(locationStats);
-//            newStats.add(locationStats);
-//        }
-//        this.allStats = newStats;
     }
 
     public List<LocationStats> getAllStats() {

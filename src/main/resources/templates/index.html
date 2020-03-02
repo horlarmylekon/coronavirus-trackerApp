@@ -10,34 +10,71 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
 
+    <!-- custom css -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+
 </head>
 
 <body>
+    <div class="container">
+        <h1>Coronavirus Tracker Application</h1>
+        <p>This application lists the current number of cases reported across the globe.</p>
 
-<h1>Coronavirus Tracker Application</h1>
-<p>This application lists the current number of cases reported across the globe.</p>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+                            <p class="lead">Total cases reported as of today</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="jumbotron">
-    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-    <p class="lead">Total cases reported as of today</p>
-</div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h1 class="display-4" th:text="${totalConfirmed}"></h1>
+                            <p class="lead">Total confirmed</p>
+                        </div>
+                    </div>
+                </div>
 
-<table>
-    <tr>
-        <th>State</th>
-        <th>Country</th>
-        <th>Total cases reported</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.state}">Onions</td>
-        <td th:text="${locationStat.country}">2.41</td>
-        <td th:text="${locationStat.latestTotalCases}">0</td>
-    </tr>
-</table>
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h1 class="display-4" th:text="${totalDeath}"></h1>
+                            <p class="lead">Total death</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<p>
-    <a href="../index.html" th:href="@{/}">Return to home</a>
-</p>
+
+
+
+        <table class="table">
+            <tr>
+                <th>State</th>
+                <th>Country</th>
+                <th>Total cases reported</th>
+                <th>Changes since las tday</th>
+            </tr>
+            <tr th:each="locationStat : ${locationStats}">
+                <td th:text="${locationStat.state}">Onions</td>
+                <td th:text="${locationStat.country}">2.41</td>
+                <td th:text="${locationStat.latestTotalCases}">0</td>
+                <td th:text="${locationStat.diffFromPrevDay}">0</td>
+            </tr>
+        </table>
+
+        <p>
+            <a href="../index.html" th:href="@{/}">Return to home</a>
+        </p>
+
+    </div>
+
 
 </body>
 
