@@ -49,18 +49,26 @@ public class CoronaVirusDataService {
         //connection.disconnect();
 
         System.out.println(content);
+//
+//        StringReader reader = new StringReader(content.toString());
+//        Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
+//        for (CSVRecord record : records) {
+//            LocationStats locationStats = new LocationStats();
+//            locationStats.setState(record.get("Province/State"));
+//            locationStats.setCountry(record.get("Country/Region"));
+//            locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+//
+//            System.out.println(locationStats);
+//            newStats.add(locationStats);
+//        }
+//        this.allStats = newStats;
+    }
 
-        StringReader reader = new StringReader(content.toString());
-        Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
-        for (CSVRecord record : records) {
-            LocationStats locationStats = new LocationStats();
-            locationStats.setState(record.get("Province/State"));
-            locationStats.setCountry(record.get("Country/Region"));
-            locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
 
-            System.out.println(locationStats);
-            newStats.add(locationStats);
-        }
-        this.allStats = newStats;
+    public void setAllStats(List<LocationStats> allStats) {
+        this.allStats = allStats;
     }
 }
