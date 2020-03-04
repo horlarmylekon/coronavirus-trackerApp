@@ -11,7 +11,6 @@ import sun.net.www.http.HttpClient;
 import javax.annotation.PostConstruct;
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,19 +20,21 @@ public class CoronaVirusDataService {
     /*
     This service gives the data of coronavirus cases
      */
-    private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Confirmed.csv";
+    private static String VIRUS_DATA_URL_1 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Confirmed.csv";
+    private static String VIRUS_DATA_URL_2 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Deaths.csv";
+    private static String VIRUS_DATA_URL_3 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Recovered.csv";
     private List<LocationStats> allStats = new ArrayList<>();
     private static HttpURLConnection connection;
 
     // make an http call to the url
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
-    public void fetchVirusData() throws IOException {
+    public void fetchVirusConfirmedData() throws IOException {
 
         List<LocationStats> newStats = new ArrayList<>();
 
         try{
-            URL url = new URL(VIRUS_DATA_URL);
+            URL url = new URL(VIRUS_DATA_URL_1);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -57,7 +58,12 @@ public class CoronaVirusDataService {
                 LocationStats locationStats = new LocationStats();
                 locationStats.setState(record.get("Province/State"));
                 locationStats.setCountry(record.get("Country/Region"));
-                locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+
+                int latestCases = Integer.parseInt(record.get(record.size()-1));
+                int prevDayCases = Integer.parseInt(record.get(record.size()-2));
+
+                locationStats.setLatestTotalCases(latestCases);
+                locationStats.setDiffFromPrevDay(latestCases - prevDayCases);
 
                 //System.out.println(locationStats);
                 newStats.add(locationStats);
@@ -67,6 +73,12 @@ public class CoronaVirusDataService {
         }finally {
             connection.disconnect();
         }
+    }
+
+    @PostConstruct
+    @Scheduled(cron = "* * 1 * * *")
+    public void fetchVirusDeathData() throws IOException {
+
     }
 
     public List<LocationStats> getAllStats() {
