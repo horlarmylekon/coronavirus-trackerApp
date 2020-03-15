@@ -1,100 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Coronavirus Tracker App</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Home</title>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		  crossorigin="anonymous">
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
 
-    <!-- custom css -->
-    <link rel="stylesheet" th:href="@{/style.css}">
+	<style type="text/css">
+	.cove {background-color:#343A40; width:100%; padding:12px; color:#b8b8b8;}
+	em {color:#343A40;}
+	.cod {font-size:19px; color:white; font-family:arial;}
 
+	a:link {color:#b8b8b8; text-decoration:none; }
+	a:visited {color:white; text-decoration:underline; }
+	a:hover {color:orange; text-decoration:underline;}
+	a:active {color:blue; text-decoration:underline; background-color:white;}
+	h1 {font-family:arial; position:absolute; top:51px; left:98px; }
+	#following {position:absolute; top:112px; left:99px; color:white; background-color:#343A40; padding:4px;}
+	#application{position:absolute; top:151px; left:99px; color:#e9ecef;  padding-top:40px;  padding-bottom: 265px; background-color:#e9ecef; width:1209px;}
+	.six {font-size:68px; font-family:arial;}
+	.spade {font-family:arial; position:absolute; top:198px; left:129px; border-color:#b8b8b8; border-width:2px;  background-color:white; border-style:dashed;  padding-top:20px; padding-bottom:60px; padding-left:16px; padding-right:16px;}
+	.total {font-size:21px; padding:10px;}
+	.tot { position:absolute; top:207px; left:466px; border-color:#b8b8b8; border-width:2px;  background-color:white; border-style:dashed;  padding-top:20px; padding-bottom:37px; padding-left:16px; padding-right:119px;}
+	.con {font-family:arial; font-size:25px;}
+	.cot {font-family:arial; font-size:25px;}
+	.tit { position:absolute; top:207px; left:770px; border-color:#b8b8b8; border-width:2px;  background-color:white; border-style:dashed;  padding-top:20px; padding-bottom:37px; padding-left:16px; padding-right:127px;}
+	table {position:absolute; top:490px; left:99px;}
+	th {font-size:19px; font-family:arial;}
+	td {font-size:16px; font-family:arial;}
+	
+	
+	</style>
+	
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Tracking COVID-19</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<h1>Coronavirus Tracker Application</h1>
+<div id="following">This application lists the current number of cases reported accross the globe.</div>
+<div id="application"> This application lists the current number of cases reported accross the globe</div>
+<p class="spade"><span class="six">64460</span> <br /><span class="total">Total cases reported as of today</span></p>
+<p class="tot"><span class="con">Total confirmed:</span></p>
+<p class="tit"><span class="cot">Total Death:</span></p>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Prevention</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-    <div class="container">
-        <h1>Coronavirus Tracker Application</h1>
-        <p>This application lists the current number of cases reported across the globe.</p>
+<table border="1" cellpadding="10px" width="85%">
+	
+	<tr>
+		<th>States</td>
+		<th>Country</td>
+		<th>Total Cases reported</td>
+		<th>Change Since Last Day</td>
+	</tr>
+	
+	<tr>
+		<td>Anhui</td>
+		<td>MainLand Chaina</td>
+		<td>934</td>
+		<td>0</td>
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>jjjgu</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	<tr>
+		<td>lovddd</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+	</tr>
+	
+	
+</table>
 
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-                            <p class="lead">Total cases reported as of today</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h1 class="display-4" th:text="${totalConfirmed}"></h1>
-                            <p class="lead">Total confirmed</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h1 class="display-4" th:text="${totalDeath}"></h1>
-                            <p class="lead">Total death</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
 
 
-        <table class="table">
-            <tr>
-                <th>State</th>
-                <th>Country</th>
-                <th>Total cases reported</th>
-                <th>Changes since last day</th>
-            </tr>
-            <tr th:each="locationStat : ${locationStats}">
-                <td th:text="${locationStat.state}">Onions</td>
-                <td th:text="${locationStat.country}">2.41</td>
-                <td th:text="${locationStat.latestTotalCases}">0</td>
-                <td th:text="${locationStat.diffFromPrevDay}">0</td>
-            </tr>
-        </table>
-
-        <p>
-            <a href="../index.html" th:href="@{/}">Return to home</a>
-        </p>
-
-    </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+	<p class="cove"><span class="cod">COVID-19</span> <em>.........</em> Home<em>.........</em> <a href="prevention.html">Prevention</p> </p>
+	
+	
+
 </body>
+
+
+
 </html>
