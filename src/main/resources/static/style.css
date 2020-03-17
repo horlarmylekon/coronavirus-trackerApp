@@ -6,3 +6,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.foot{
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+form{
+    padding: 20px 90px;
+}
+

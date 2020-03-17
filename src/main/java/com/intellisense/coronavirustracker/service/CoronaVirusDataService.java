@@ -21,10 +21,17 @@ public class CoronaVirusDataService {
     This service gives the data of coronavirus cases
      */
     private static String VIRUS_DATA_URL_1 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Confirmed.csv";
-    private static String VIRUS_DATA_URL_2 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Deaths.csv";
-    private static String VIRUS_DATA_URL_3 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Recovered.csv";
+
     private List<LocationStats> allStats = new ArrayList<>();
     private static HttpURLConnection connection;
+
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
+
+    public void setAllStats(List<LocationStats> allStats) {
+        this.allStats = allStats;
+    }
 
     // make an http call to the url
     @PostConstruct
@@ -33,18 +40,18 @@ public class CoronaVirusDataService {
 
         List<LocationStats> newStats = new ArrayList<>();
 
-        try{
+        try {
             URL url = new URL(VIRUS_DATA_URL_1);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
             //read response
             StringBuilder content;
-            try(BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))){
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
                 String line;
                 content = new StringBuilder();
 
-                while ((line = reader.readLine()) != null){
+                while ((line = reader.readLine()) != null) {
                     content.append(line);
                     content.append(System.lineSeparator());
                 }
@@ -59,8 +66,8 @@ public class CoronaVirusDataService {
                 locationStats.setState(record.get("Province/State"));
                 locationStats.setCountry(record.get("Country/Region"));
 
-                int latestCases = Integer.parseInt(record.get(record.size()-1));
-                int prevDayCases = Integer.parseInt(record.get(record.size()-2));
+                int latestCases = Integer.parseInt(record.get(record.size() - 1));
+                int prevDayCases = Integer.parseInt(record.get(record.size() - 2));
 
                 locationStats.setLatestTotalCases(latestCases);
                 locationStats.setDiffFromPrevDay(latestCases - prevDayCases);
@@ -75,17 +82,4 @@ public class CoronaVirusDataService {
         }
     }
 
-    @PostConstruct
-    @Scheduled(cron = "* * 1 * * *")
-    public void fetchVirusDeathData() throws IOException {
-
-    }
-
-    public List<LocationStats> getAllStats() {
-        return allStats;
-    }
-
-    public void setAllStats(List<LocationStats> allStats) {
-        this.allStats = allStats;
-    }
 }

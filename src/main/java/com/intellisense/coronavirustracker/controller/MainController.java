@@ -24,4 +24,11 @@ public class MainController {
         model.addAttribute("totalReportedCases", totalReportedCases);
         return "index";
     }
+
+    @GetMapping("/prevention")
+    public String showPreventionPage(){
+        return "prevention";
+    }
+
+
 }
