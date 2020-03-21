@@ -18,6 +18,9 @@ body {
     color: #ffffff;
 }
 
+.navbar-toggler-icon{
+    background-color: #ffffff;
+}
 .foot{
     background-color: #388e3c;
     color: #ffffff;
@@ -25,7 +28,7 @@ body {
     padding: 20px 10px;
 }
 
-.foota{
+.foot a{
     color: #ffffff;
 }
 
