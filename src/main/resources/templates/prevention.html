@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg">
 		<a class="navbar-brand" href="#">Tracking COVID-19</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -25,6 +25,9 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<a class="nav-link" th:href="@{/}">Home</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/symptom}">Symptoms</a>
 				</li>
 				<li class="nav-item active">
 					<a class="nav-link" th:href="@{/prevention}">Prevention<span class="sr-only">(current)</span></a>
@@ -36,78 +39,90 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h1>Coronavirus Tracker Application</h1>
+		<h1>Possible Ways You can Prevent COVID-19</h1>
 		<p>The following are the basic prevention methods of Coronavirus.</p>
 		<img class="cent" src="images/coor.jpeg" title="Diagramatic Representation of the Coronavirus"/>
-		<div id="aware">
- 			<strong class="side">Basic protective measures against the new coronavirus </strong>
-			<br />
-			Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website and through your
-			<br /> national and local public health authority. COVID-19 is still affecting mostly people in China with some
-			outbreaks in<br />other countries. Most people who become infected experience mild illness and recover, but it
-			can be more severe for<br />others. Take care of your health and protect others by doing the following:
+
+        <div class="prev">
+ 			<h2>Basic protective measures against the new coronavirus </h2>
+			<p>
+                Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website
+                and through your national and local public health authority. COVID-19 is still affecting mostly
+                people in China with some outbreaks in other countries. Most people who become infected experience
+                mild illness and recover, but it can be more severe for others. Take care of your health and protect
+                others by doing the following:
+            </p>
 		</div>
 
-		<div id="awaree">
-			<strong class="side">Wash your hands frequently </strong>
-			<br />
-			Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.
-			<br />
+        <div class="prev">
+            <h3>Wash your hands frequently</h3>
+            <img class="centi" src="images/handwahing.jpg" title="Wash your hands frequently"/>
+            <p>
+                Regularly and thoroughly clean your hands with an alcohol-based
+                hand rub or wash them with soap and water.
+                Why? Washing your hands with soap and water or using alcohol-based hand
+                rub kills viruses that may be on
+                your hands.
+            </p>
+        </div>
 
-			Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on
-			your hands.
-		</div>
-		<img class="centi" src="images/handwahing.jpg" title="Wash your hands frequently"/>
+        <div class="prev">
+            <h3>Avoid touching eyes, nose and mouth</h3>
+            <img class="eyee" src="images/like.jpeg" title="Avoid touching eyes, nose and mouth"/>
+            <p>
+                Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer
+                the virus to your eyes, nose or mouth. From there, the virus can enter your body and can make
+                you sick.
+            </p>
+        </div>
 
-		<div id="awareee"><strong class="side">Avoid touching eyes, nose and mouth</strong><br />
-		Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus
-			to your eyes, nose or mouth.<br /> From there, the virus can enter your body and can make you sick.
+        <div class="prev">
+            <h3>Practice respiratory hygiene</h3>
+            <img class="cov" src="images/cover.jpg" title="Practice respiratory hygiene"/>
+            <p>
+                Make sure you, and the people around you, follow good respiratory hygiene. This means
+                covering your mouth and nose with your bent elbow or tissue when you cough or sneeze.
+                Then dispose of the used tissue immediately. Why? Droplets spread virus. By following good
+                respiratory hygiene
+                you protect the people around you from viruses such as cold, flu and COVID-19.
+            </p>
+            <p>
+                Follow the directions of your local health authority.
+                Why? National and local authorities will have the most up to date information on the situation
+                in your area.
+            </p>
+        </div>
 
-		</div>
+        <div class="prev">
+            <h3>Others Include:</h3>
+            <ul>
+                <li>Avoid close contact with people who are sick.</li>
+                <li>Stay home when you are sick.</li>
+                <li>Clean and disinfect frequently touched objects and surfaces.</li>
+                <li>Cover your cough or sneeze with a tissue, then throw the tissue in the trash.</li>
+            </ul>
+        </div>
 
-		<img class="eyee" src="images/like.jpeg" title="Avoid touching eyes, nose and mouth"/>
+        <div class="prev">
+            <h3>Stay informed and follow advice given by your healthcare provider</h3>
+            <p>
+                Stay informed on the latest developments about COVID-19. Follow advice given by your healthcare provider,
+                your national and local public health authority or your employer on how to protect yourself and others
+                from COVID-19. Why? National and local authorities will have the most up to date information on whether COVID-19 is
+                spreading in your area. They are best placed to advise on what people in your area should be doing
+                to protect themselves. For more information visit <a href="https://ncdc.gov.ng">NCDC</a>.
+            </p>
+        </div>
+    </div>
 
-		<div id="respiratory"><strong class="side">Practice respiratory hygiene</strong><br/>
-			Make sure you, and the people around you, follow good respiratory hygiene. This means
-			covering your mouth and nose with your bent elbow <br/> or tissue when you cough or sneeze.
-			Then dispose of the used tissue immediately.
 
-			Why? Droplets spread virus. By following good respiratory hygiene
-			<br/>you protect the people around you from viruses such as cold, flu and COVID-19.<br/>
-
-			If you have fever, cough and difficulty breathing, seek medical care early
-			Stay home if you feel unwell. If you have a fever, cough and difficulty breathing,<br/> seek medical attention and call in advance. Follow the directions of your local health authority.
-
-			<br/>Why? National and local authorities will have the most up to date information on the situation in your area.<br/> Calling in advance will allow your health care provider to quickly direct you to the right health facility. <br/>This will also protect you and help prevent spread of viruses and other infections.</div>
-
-			<img class="cov" src="images/cover.jpg" title="Practice respiratory hygiene"/>
-
-			<div id="informed">
-				<strong class="side">Stay informed and follow advice given by your healthcare provider</strong><br/>
-				Stay informed on the latest developments about COVID-19. Follow advice given by your healthcare provider,
-				your <br/>national and local public health authority or your employer on how to protect yourself and others
-				from COVID-19.<br/>
-
-			Why? National and local authorities will have the most up to date information on whether COVID-19 is
-				spreading in<br/> your area. They are best placed to advise on what people in your area should be doing
-				to protect themselves.</div>
-
-			<p class="other">Others Include:</p>
-		<ul>
-				<li>Avoid close contact with people who are sick.</li>
-				<li>Stay home when you are sick.</li>
-				<li>Clean and disinfect frequently touched objects and surfaces.</li>
-				<li>Cover your cough or sneeze with a tissue, then throw the tissue in the trash.</li>
-			 </ul>
-	</div>
-
-	<div class="foot">
-		<span class="cod">COVID-19 <em>......</em> </span>
-		<span class="health" >Stay Aware, Stay Healthy!!!
-					<em>...................................................................</em>
-					<a href="index.html">Home</a>
-				</span>
-	</div>
+    <div class="foot">
+        <span class="cod">COVID-19 <em>......</em> </span>
+        <span class="health" >Stay Aware, Stay Healthy!!!
+                    <em>...................................................................</em>
+                    <a href="index.html">Home</a>
+                </span>
+    </div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -6,11 +6,27 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.navbar{
+    background-color: #388e3c;
+}
+
+.navbar a{
+    color: #ffffff;
+}
+
+.nav-link{
+    color: #ffffff;
+}
+
 .foot{
-    background-color: #000000;
+    background-color: #388e3c;
     color: #ffffff;
     text-align: center;
     padding: 20px 10px;
+}
+
+.foota{
+    color: #ffffff;
 }
 
 form{

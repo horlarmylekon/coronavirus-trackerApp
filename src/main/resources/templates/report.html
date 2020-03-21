@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Tracking COVID-19</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,6 +26,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/symptom}">Symptoms<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/prevention}">Prevention</a>
@@ -38,11 +41,19 @@
     </nav>
 
     <div class="container">
+        <h3>Put a call through  <a href="https://ncdc.gov.ng">Us</a>.</h3>
+        <p>If you have fever, cough and difficulty breathing, seek medical care early
+            Stay home if you feel unwell. If you have a fever, cough and difficulty breathing,
+            seek medical attention and call in advance. </p>
+        <p>Calling in advance will allow your health care provider to quickly direct you to the right
+            health facility. This will also protect you and help prevent spread of viruses and other
+            infections.</p>
+
         <form th:action="@{/report/sms}" method="post">
             <div class="form-group">
                 <label for="toPhoneNumber">Phone Number</label>
                 <input type="text" class="form-control" id="toPhoneNumber" name="phoneNumber">
-                <small id="toPhoneNumberHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <small id="toPhoneNumberHelp" class="form-text text-muted">If you leave a Nigeria, send a text to our Toll-Free Call Centre: 0800 970000 10</small>
             </div>
 
             <div class="form-group">

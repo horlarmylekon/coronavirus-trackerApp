@@ -22,6 +22,7 @@ public class CoronaVirusDataService {
      */
     private static String VIRUS_DATA_URL_1 = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_2019-ncov-Confirmed.csv";
 
+//    private static String VIRUS_DATA_URL_1 = "https://raw.githubusercontent.com/bc67da8d/corona-smart-tracker-data/master/case.json";
     private List<LocationStats> allStats = new ArrayList<>();
     private static HttpURLConnection connection;
 

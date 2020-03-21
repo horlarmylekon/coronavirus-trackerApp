@@ -25,6 +25,12 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/symptom")
+    public String showSymptomPage(){
+
+        return "symptom";
+    }
+
     @GetMapping("/prevention")
     public String showPreventionPage(){
         return "prevention";
